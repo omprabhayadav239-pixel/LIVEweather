@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#eaf6ff">
+    <title>Create account — SkyCast</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="signup.js" defer></script>
+  </head>
+  <body class="login-page">
+    <header class="login-header">
+      <a class="brand" href="index.html" aria-label="SkyCast home">
+        <span class="brand-mark" aria-hidden="true">☁</span>
+        <span>SkyCast</span>
+      </a>
+      <a class="back-link" href="index.html"><span aria-hidden="true">←</span> Back to home</a>
+    </header>
+
+    <main class="login-layout signup-layout">
+      <section class="login-aside">
+        <p class="eyebrow">YOUR DAY, A LITTLE CLEARER</p>
+        <h1>A fresh start<br>for <span>what's outside.</span></h1>
+        <div class="login-illustration" aria-hidden="true"><span>☼</span><i>✳</i><b>◦</b></div>
+      </section>
+      <section class="login-card">
+        <p class="eyebrow">JOIN SKYCAST</p>
+        <h2>Create your account</h2>
+        <p class="login-subtitle">A little more in tune with the weather starts here.</p>
+        <form id="signup-form">
+          <label for="name">Your name</label>
+          <input id="name" name="name" type="text" autocomplete="name" placeholder="How should we call you?" required>
+          <label for="email">Email address</label>
+          <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+          <label for="password">Create a password</label>
+          <input id="password" name="password" type="password" autocomplete="new-password" placeholder="At least 6 characters" minlength="6" required>
+          <label for="confirm-password">Confirm password</label>
+          <input id="confirm-password" name="confirm-password" type="password" autocomplete="new-password" placeholder="Enter your password again" minlength="6" required>
+          <button class="button button-dark login-submit" type="submit">Create account <span aria-hidden="true">→</span></button>
+          <p class="login-message" id="signup-message" role="status" aria-live="polite"></p>
+        </form>
+        <p class="account-prompt">Already have an account? <a href="login.html">Log in</a></p>
+        <p class="login-disclaimer">Account creation is a visual demo; no account data is stored or sent.</p>
+      </section>
+    </main>
+
+    <footer class="login-footer"><span>Made for wherever the day takes you.</span><a href="index.html">SkyCast</a></footer>
+  </body>
+</html>

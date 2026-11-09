@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#eaf6ff">
+    <title>Log in — SkyCast</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="login.js" defer></script>
+  </head>
+  <body class="login-page">
+    <header class="login-header">
+      <a class="brand" href="index.html" aria-label="SkyCast home">
+        <span class="brand-mark" aria-hidden="true">☁</span>
+        <span>SkyCast</span>
+      </a>
+      <a class="back-link" href="index.html"><span aria-hidden="true">←</span> Back to home</a>
+    </header>
+
+    <main class="login-layout">
+      <section class="login-aside">
+        <p class="eyebrow">A LITTLE CLOSER TO THE DAY</p>
+        <h1>Your forecast<br>is just around<br><span>the corner.</span></h1>
+        <div class="login-illustration" aria-hidden="true"><span>☼</span><i>✳</i><b>◦</b></div>
+      </section>
+      <section class="login-card">
+        <p class="eyebrow">WELCOME BACK</p>
+        <h2>Log in to SkyCast</h2>
+        <p class="login-subtitle">Sign in to pick up where you left off.</p>
+        <form id="login-form">
+          <label for="email">Email address</label>
+          <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required minlength="6">
+          <button class="button button-dark login-submit" type="submit">Log in <span aria-hidden="true">→</span></button>
+          <p class="login-message" id="login-message" role="status" aria-live="polite"></p>
+        </form>
+        <div class="login-separator"><span>OR</span></div>
+        <p class="account-prompt">New to SkyCast? <a href="signup.html">Create an account</a></p>
+        <a class="button button-outline" href="weather.html">Continue to weather without an account</a>
+        <p class="login-disclaimer">Sign-in is a visual demo and is not connected to an account service.</p>
+      </section>
+    </main>
+
+    <footer class="login-footer"><span>Made for wherever the day takes you.</span><a href="index.html">SkyCast</a></footer>
+  </body>
+</html>

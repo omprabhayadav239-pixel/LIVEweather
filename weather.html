@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#eaf6ff">
+    <title>SkyCast — Live Weather</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="dashboard">
+      <header class="topbar">
+        <a class="brand" href="index.html" aria-label="SkyCast home">
+          <span class="brand-mark" aria-hidden="true">☁</span>
+          <span>SkyCast</span>
+        </a>
+        <div class="topbar-note"><span class="live-dot"></span> Live weather, wherever you are</div>
+        <nav class="weather-nav" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="login.html">Log in</a>
+          <a href="signup.html">Create account</a>
+        </nav>
+      </header>
+
+      <section class="intro">
+        <p class="eyebrow">YOUR WEATHER, AT A GLANCE</p>
+        <h1>A little more in tune<br>with <span>the outside.</span></h1>
+      </section>
+
+      <form class="search" id="search-form" role="search">
+        <span class="search-icon" aria-hidden="true">⌕</span>
+        <label class="sr-only" for="city-input">Search city</label>
+        <input id="city-input" name="city" type="search" placeholder="Search any city or town in India..." autocomplete="off" aria-controls="city-suggestions" aria-expanded="false" aria-autocomplete="list" required>
+        <button id="search-button" type="submit"><span>Search</span><span aria-hidden="true">→</span></button>
+        <div class="city-suggestions" id="city-suggestions" role="listbox" aria-label="Indian city results" hidden></div>
+      </form>
+      <div class="state-filter">
+        <label for="state-select">Filter by state or union territory</label>
+        <select id="state-select" name="state">
+          <option value="">All India</option>
+          <optgroup label="States">
+            <option>Andhra Pradesh</option>
+            <option>Arunachal Pradesh</option>
+            <option>Assam</option>
+            <option>Bihar</option>
+            <option>Chhattisgarh</option>
+            <option>Goa</option>
+            <option>Gujarat</option>
+            <option>Haryana</option>
+            <option>Himachal Pradesh</option>
+            <option>Jharkhand</option>
+            <option>Karnataka</option>
+            <option>Kerala</option>
+            <option>Madhya Pradesh</option>
+            <option>Maharashtra</option>
+            <option>Manipur</option>
+            <option>Meghalaya</option>
+            <option>Mizoram</option>
+            <option>Nagaland</option>
+            <option>Odisha</option>
+            <option>Punjab</option>
+            <option>Rajasthan</option>
+            <option>Sikkim</option>
+            <option>Tamil Nadu</option>
+            <option>Telangana</option>
+            <option>Tripura</option>
+            <option>Uttar Pradesh</option>
+            <option>Uttarakhand</option>
+            <option>West Bengal</option>
+          </optgroup>
+          <optgroup label="Union territories">
+            <option>Andaman and Nicobar Islands</option>
+            <option>Chandigarh</option>
+            <option>Dadra and Nagar Haveli and Daman and Diu</option>
+            <option>Delhi</option>
+            <option>Jammu and Kashmir</option>
+            <option>Ladakh</option>
+            <option>Lakshadweep</option>
+            <option>Puducherry</option>
+          </optgroup>
+        </select>
+      </div>
+      <p class="city-search-hint">Search a city or town, or select a state to narrow results. The list depends on available location data.</p>
+
+      <p class="status-message" id="status-message" role="status" aria-live="polite">
+        <span class="spinner" aria-hidden="true"></span>
+        <span class="status-text"></span>
+      </p>
+
+      <section class="weather-content" id="weather-content" aria-live="polite" hidden>
+        <article class="current-card">
+          <div class="current-main">
+            <div class="location-line">
+              <span class="location-pin" aria-hidden="true">⌖</span>
+              <div>
+                <h2 id="city-name">—</h2>
+                <p id="current-date">—</p>
+              </div>
+            </div>
+            <div class="current-weather">
+              <span id="current-icon" aria-hidden="true"></span>
+              <div>
+                <p class="temperature"><span id="temperature">—</span><sup>°</sup></p>
+                <p class="condition" id="condition">—</p>
+              </div>
+            </div>
+          </div>
+          <div class="weather-divider"></div>
+          <div class="weather-details">
+            <div class="detail">
+              <span class="detail-icon humidity-icon" aria-hidden="true">◉</span>
+              <div><p class="detail-label">Humidity</p><p class="detail-value"><span id="humidity">—</span><small>%</small></p></div>
+            </div>
+            <div class="detail">
+              <span class="detail-icon wind-icon" aria-hidden="true">〰</span>
+              <div><p class="detail-label">Wind speed</p><p class="detail-value"><span id="wind-speed">—</span><small>m/s</small></p></div>
+            </div>
+            <div class="detail">
+              <span class="detail-icon feels-icon" aria-hidden="true">◌</span>
+              <div><p class="detail-label">Feels like</p><p class="detail-value"><span id="feels-like">—</span><small>°</small></p></div>
+            </div>
+          </div>
+        </article>
+
+        <section class="forecast-section">
+          <div class="section-heading">
+            <div><p class="eyebrow">PLAN AHEAD</p><h2>5-day forecast</h2></div>
+            <span class="forecast-unit">Every day, a little clearer</span>
+          </div>
+          <div class="forecast-grid" id="forecast-grid"></div>
+        </section>
+      </section>
+
+      <section class="welcome-card" id="welcome-card">
+        <div class="welcome-orbit orbit-one"></div>
+        <div class="welcome-orbit orbit-two"></div>
+        <div class="welcome-copy">
+          <span class="welcome-sun" aria-hidden="true">☼</span>
+          <p class="eyebrow">READY WHEN YOU ARE</p>
+          <h2>Find your forecast.</h2>
+          <p>Search a city to see what's happening now<br class="desktop-break"> and what the next five days have in store.</p>
+        </div>
+        <div class="welcome-art" aria-hidden="true"><span>☁</span><i>✦</i><b>✧</b></div>
+      </section>
+
+      <footer><span>Made for wherever the day takes you.</span><span>Weather data by Open-Meteo</span></footer>
+    </main>
+  </body>
+</html>
